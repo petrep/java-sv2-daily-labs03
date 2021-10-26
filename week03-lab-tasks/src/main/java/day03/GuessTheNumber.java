@@ -19,7 +19,7 @@ public class GuessTheNumber {
 		System.out.println(" between 1 and 100.");
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("randomIntTo100: " + randomIntTo100);
+//		System.out.println("randomIntTo100: " + randomIntTo100);
 		for (int i = 1; i <= 6; i++) {
 			int guess = scanner.nextInt();
 			if (guess == randomIntTo100) {
@@ -30,14 +30,17 @@ public class GuessTheNumber {
 			}
 			if (guess < randomIntTo100) {
 				System.out.println("Almost. Your guess is a little low.");
-				System.out.println("Guess again:");
 				remainingLives--;
+				if (remainingLives > 0) System.out.println("Guess again:");
 			} else {
 				System.out.println("Almost. Your guess is a little high.");
-				System.out.println("Guess again:");
 				remainingLives--;
+				if (remainingLives > 0) System.out.println("Guess again:");
 			}
 		}
-		if (!wonTheGame) System.out.println(" You have lost. Sorry :(");
+		if (!wonTheGame) {
+			System.out.println(" You have lost. Sorry :(");
+			System.out.println("The number was: " + randomIntTo100);
+		}
 	}
 }
